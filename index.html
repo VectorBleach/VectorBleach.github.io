@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Interactive Charts</title>
+  <!-- Link to Google Fonts for better typography -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Link to Font Awesome for navbar icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* Global Styles */
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #f4f4f9;
+      color: #333;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+
+    /* Navigation Bar Styles */
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: #ffffff;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+      animation: slideDown 0.5s ease-out;
+    }
+
+    .navbar-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 10px 20px;
+    }
+
+    .navbar-logo {
+      font-size: 1.5em;
+      font-weight: bold;
+      color: #333;
+      text-decoration: none;
+    }
+
+    .navbar-menu {
+      display: flex;
+      gap: 20px;
+    }
+
+    .navbar-menu a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .navbar-menu a:hover {
+      color: #007BFF;
+    }
+
+    /* Hamburger Menu (for mobile) */
+    .hamburger {
+      display: none;
+      font-size: 1.5em;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      .navbar-menu {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: #ffffff;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .navbar-menu.active {
+        display: flex;
+      }
+
+      .hamburger {
+        display: block;
+      }
+    }
+
+    /* Introductory Section */
+    .intro {
+      max-width: 1200px;
+      margin: 100px auto 40px;
+      padding: 0 20px;
+      text-align: center;
+      animation: fadeIn 1s ease-in;
+    }
+
+    .intro h2 {
+      font-size: 2em;
+      margin-bottom: 20px;
+    }
+
+    .intro p {
+      font-size: 1.1em;
+      line-height: 1.6;
+      color: #555;
+    }
+
+    /* Chart Container Styles */
+    .chart-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      gap: 20px;
+      max-width: 1200px;
+      margin: 0 auto 40px;
+      padding: 0 20px;
+    }
+
+    iframe {
+      border: 2px solid #ccc;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      animation: fadeInUp 1s ease-out;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    iframe:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Footer Styles */
+    .footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #ffffff;
+      box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+      animation: slideUp 0.5s ease-out;
+    }
+
+    /* Animations */
+    @keyframes slideDown {
+      from { top: -60px; }
+      to { top: 0; }
+    }
+
+    @keyframes slideUp {
+      from { bottom: -60px; }
+      to { bottom: 0; }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="navbar-container">
+      <a href="#" class="navbar-logo">MyCharts</a>
+      <div class="hamburger" id="hamburger">
+        <i class="fas fa-bars"></i>
+      </div>
+      <div class="navbar-menu" id="navbar-menu">
+        <a href="#home">Home</a>
+        <a href="#charts">Charts</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Introductory Section -->
+  <section class="intro" id="home">
+    <h2>Laptop Detail Survey</h2>
+    <p>
+      We invite you to participate in our survey to gather insights about laptop usage, preferences, and performance. Your responses will help us understand current trends and user needs better.
+    </p>
+  </section>
+
+  <!-- Chart Container -->
+  <div class="chart-container" id="charts">
+    <iframe
+      width="600"
+      height="371"
+      seamless
+      frameborder="0"
+      scrolling="no"
+      src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRg-3VM_cm0Nt0vnstr8xTHWphYQ9vUpSTV266_DS3h_LN3f7ZXplYyGjpKzVWh-qxUuGTpK1-Fz945/pubchart?oid=1560835184&amp;format=interactive"
+      title="Chart 1"
+    ></iframe>
+
+    <iframe
+      width="600"
+      height="371"
+      seamless
+      frameborder="0"
+      scrolling="no"
+      src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRg-3VM_cm0Nt0vnstr8xTHWphYQ9vUpSTV266_DS3h_LN3f7ZXplYyGjpKzVWh-qxUuGTpK1-Fz945/pubchart?oid=871648061&amp;format=interactive"
+      title="Chart 2"
+    ></iframe>
+
+    <iframe
+      width="600"
+      height="371"
+      seamless
+      frameborder="0"
+      scrolling="no"
+      src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRg-3VM_cm0Nt0vnstr8xTHWphYQ9vUpSTV266_DS3h_LN3f7ZXplYyGjpKzVWh-qxUuGTpK1-Fz945/pubchart?oid=203629613&amp;format=interactive"
+      title="Chart 3"
+    ></iframe>
+
+    <iframe
+      width="600"
+      height="371"
+      seamless
+      frameborder="0"
+      scrolling="no"
+      src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRg-3VM_cm0Nt0vnstr8xTHWphYQ9vUpSTV266_DS3h_LN3f7ZXplYyGjpKzVWh-qxUuGTpK1-Fz945/pubchart?oid=1303836834&amp;format=interactive"
+      title="Chart 4"
+    ></iframe>
+
+    <iframe
+      width="600"
+      height="371"
+      seamless
+      frameborder="0"
+      scrolling="no"
+      src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRg-3VM_cm0Nt0vnstr8xTHWphYQ9vUpSTV266_DS3h_LN3f7ZXplYyGjpKzVWh-qxUuGTpK1-Fz945/pubchart?oid=2112236418&amp;format=interactive"
+      title="Chart 5"
+    ></iframe>
+  </div>
+
+  <!-- About Section -->
+  <section class="intro" id="about">
+    <h2>About Our Charts</h2>
+    <p>
+      Our interactive charts are powered by Google Sheets and embedded seamlessly into our webpage. They are designed to provide real-time data visualization, allowing you to interact with the data for a deeper understanding. Whether you're a business analyst, student, or data enthusiast, our charts offer valuable insights tailored to your needs.
+    </p>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="intro" id="contact">
+    <h2>Get in Touch</h2>
+    <p>
+      Have questions or need assistance with our charts? Feel free to reach out to us through our <a href="mailto:contact@mycharts.com">contact page</a>. We'd love to hear your feedback and help you make the most of our data visualizations.
+    </p>
+  </section>
+
+  <!-- Footer -->
+  <div class="footer">
+    &copy; 2024 MyCharts. All rights reserved.
+  </div>
+
+  <!-- JavaScript for Navbar Toggle -->
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navbarMenu = document.getElementById('navbar-menu');
+
+    hamburger.addEventListener('click', () => {
+      navbarMenu.classList.toggle('active');
+    });
+
+    // Close the navbar menu when clicking outside
+    window.addEventListener('click', (e) => {
+      if (!navbarMenu.contains(e.target) && !hamburger.contains(e.target)) {
+        navbarMenu.classList.remove('active');
+      }
+    });
+  </script>
+</body>
+</html>
